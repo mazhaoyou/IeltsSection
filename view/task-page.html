@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>任务挑战</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/xhdstyle.css" />
+		<style type="text/css">
+			.task-list {
+				margin: 12px 12px 20px 12px;
+			}
+			
+			.mui-table-view {
+				background: linear-gradient(to right, #2C1B73, #9B41BC);
+				border-radius: 6px;
+				margin-top: 12px;
+			}
+			
+			.mui-table-view.mui-wenwancheng {
+				background: #5363F2;
+			}
+			
+			.mui-table-view-cell {
+				position: relative;
+				overflow: hidden;
+				padding: 15px 0;
+				margin: 18px 0;
+				-webkit-touch-callout: none;
+			}
+			
+			.task-list-title {
+				font-size: 14px;
+				font-family: PingFang-SC-Medium;
+				color: #fff;
+			}
+			
+			.task-list-content {
+				font-size: 11px;
+				font-family: PingFang-SC-Medium;
+				color: #EDE2FF;
+				margin-top: 6px;
+			}
+			
+			.task-frame {
+				margin: 9px 0;
+			}
+			
+			.submit {
+				position: absolute;
+				top: 38%;
+				right: 0;
+				background: #F8C911;
+				height: 23px;
+				width: 64px;
+				line-height: 23px;
+				border-radius: 11px;
+				padding: 0 10px;
+				font-size: 11px;
+				color: #202020;
+				margin-right: 12px;
+			}
+			
+			.mui-media-body {
+				margin-right: 70px;
+				overflow: hidden;
+			}
+			
+			.mui-media-object.mui-pull-left.my-number {
+				height: 36px;
+				width: 36px;
+				border-radius: 100%;
+				margin: 0 auto;
+				border: 1px solid #FFFFFF;
+				border-radius: 36px;
+				text-align: center;
+				line-height: 36px;
+				margin: 5px 5px 0px 12px;
+			}
+			
+			.mui-table-view .mui-media,
+			.mui-table-view .mui-media-body {
+				overflow: hidden;
+				margin: 0;
+			}
+			
+			.mui-table-view-cell>a:not(.mui-btn) {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				margin: -11px 0px;
+				padding: inherit;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: inherit;
+			}
+			
+			.mui-media-object.mui-pull-left.my-number span {
+				border-color: #FFFFFF;
+				border: 1px;
+				border-radius: 90px;
+				color: #FFFFFF;
+			}
+			
+			.weiwancheng {
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 23px;
+				width: 64px;
+				line-height: 23px;
+				border-radius: 11px;
+				padding: 0 10px;
+				font-size: 11px;
+				color: #202020;
+				margin-right: 12px;
+			}
+			
+			.weiwancheng img {
+				height: 39px;
+				width: 39px;
+				margin-top: 12px;
+			}
+			
+			.weiwancheng .weiwancheng-content {
+				font-size: 10px;
+				color: #8793FD;
+				margin-top: -7px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-action-back mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+					<span id="" class="ui-left">返回</span>
+		    </button>
+			<h1 class="mui-title">任务挑战</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="task-list">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">1</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思写作王者争霸挑战赛</span>
+									<p class='task-list-content'>共挑战12次，最高摘取9枚金币</p>
+								</div>
+								<div class="submit">
+									再次挑战
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">2</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思词汇争霸赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="submit">
+									立即挑战
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">3</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思题库冠军争夺赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="submit">
+									立即挑战
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view mui-wenwancheng">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">4</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思题库冠军争夺赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="weiwancheng">
+									<img src="../img/weiwancheng.png" />
+									<div class="weiwancheng-content">
+										未开锁
+									</div>
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view mui-wenwancheng">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">5</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思题库冠军争夺赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="weiwancheng">
+									<img src="../img/weiwancheng.png" />
+									<div class="weiwancheng-content">
+										未开锁
+									</div>
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view mui-wenwancheng">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">6</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思题库冠军争夺赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="weiwancheng">
+									<img src="../img/weiwancheng.png" />
+									<div class="weiwancheng-content">
+										未开锁
+									</div>
+								</div>
+							</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui(".mui-scroll-wrapper").scroll();
+		</script>
+	</body>
+
+</html>

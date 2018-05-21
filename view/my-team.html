@@ -1,0 +1,445 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的战队</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/xhdstyle.css" />
+		<style type="text/css">
+			.mui-content.my-team {
+				background: linear-gradient(#7849E6, #F64C8B);
+			}
+			
+			.my-card {
+				height: 210px;
+				background: #fff;
+				margin: 47.25px 12px 12px 12px;
+				font-size: 14px;
+				position: relative;
+				overflow: visible;
+				border-radius: 4px;
+				background-color: #fff;
+				background-clip: padding-box;
+				box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+			}
+			
+			.my-card .hader-img {
+				text-align: center;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.my-card .hader-img img {
+				height: 74px;
+				width: 74px;
+				border-radius: 74px;
+				margin-top: -20px;
+			}
+			
+			.my-card .my-team-name {
+				text-align: center;
+				font-size: 16px;
+				color: #000000;
+				padding: 0;
+				margin: 0;
+				font-weight: bold;
+			}
+			
+			.my-card .my-team-wings {
+				text-align: center;
+				font-size: 13px;
+				color: #999;
+				padding: 0;
+				margin: 5px 0 0 0;
+			}
+			
+			.my-card .my-team-catchword {
+				text-align: center;
+				font-size: 11px;
+				color: #824ADF;
+				padding: 0;
+				margin: 5px 0 0 0;
+			}
+			
+			.my-card .my-record-task {
+				margin: 24px 0;
+				width: 100%;
+				display: flex;
+				text-align: center;
+			}
+			
+			.my-card .my-record-task span {
+				width: 50%;
+				height: 34px;
+				line-height: 34px;
+				color: #fff;
+				border-radius: 17px;
+				margin: 0 24px;
+			}
+			
+			.my-card .my-record-task span.record {
+				background: linear-gradient(to right, #5363F2, #53CEF2);
+			}
+			
+			.my-card .my-record-task span.task {
+				background: linear-gradient(to right, #432282, #9640B9);
+			}
+			
+			.mui-table-view.my-team {
+				margin: 0;
+				border-radius: 4px;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell {
+				height: 50px;
+				line-height: 25px;
+				padding: 11px 12px;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell .my-ranking {
+				height: 24px;
+				width: 24px;
+				background: #007AFF;
+				border-radius: 100%;
+				font-size: 12px;
+				color: #fff;
+				line-height: 24px;
+				text-align: center;
+				display: inline-block;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell .my-teams {
+				margin-left: 13px;
+				color: #333;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell .my-gold {
+				float: right;
+				color: #F34C8E;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell.my-record .my-gold {
+				color: #FFFFFF;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell.my-record .my-teams {
+				color: #FFFFFF;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell.my-record {
+				background: #824ADF;
+				color: #FFFFFF;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell .my-ranking.one {
+				background: #ffb400;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell .my-ranking.two {
+				background: #a5abab;
+			}
+			
+			.mui-table-view.my-team .mui-table-view-cell .my-ranking.three {
+				background: #df4c9d;
+			}
+			
+			.scroll1 {
+				padding-top: 12px;
+				background: #fff;
+				margin-left: 12px;
+				margin-right: 12px;
+				border-radius: 4px;
+			}
+			
+			.slider_control.mui-slider-indicator.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-control-item-tab.mui-active .active {
+				width: 0;
+				height: 0;
+				border-left: 11px solid transparent;
+				border-right: 11px solid transparent;
+				border-bottom: 8px solid #ffffff;
+				left: 50%;
+				bottom: 6px;
+				margin-left: -10px;
+				position: relative;
+				border-radius: 0;
+				background-color: transparent;
+			}
+			
+			.mui-slider .mui-slider-group {
+				font-size: 0;
+				position: relative;
+				-webkit-transition: all 0s linear;
+				transition: all 0s linear;
+				white-space: nowrap;
+				margin-top: -6px;
+				margin-bottom: 12px;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+				color: #FED1FD;
+				background: 0 0;
+			}
+			
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #FFFFFF;
+				background: 0 0;
+			}
+			/**活动规则*/
+			
+			.activity-rules {
+				position: absolute;
+				right: 0;
+				top: 68px;
+				background: #F8C911;
+				height: 60px;
+				border-radius: 60px 0 0 60px;
+				padding: 10px 5px 10px 10px;
+				font-size: 12px;
+				color: #333333;
+			}
+			
+			.activity-rules .activity-rules2 {
+				margin: 0;
+				padding: 0;
+				color:#333333;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-action-back mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+					<span id="" class="ui-left">返回</span>
+		    </button>
+			<h1 class="mui-title">我的战队</h1>
+		</header>
+		<div class="mui-content my-team mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="my-card">
+					<div class="hader-img">
+						<img src="../img/hader-img1.png" />
+					</div>
+					<div class="my-team-name">
+						张雪娇老师战队
+					</div>
+					<div class="my-team-wings">
+						战区：新航道北京学校
+					</div>
+					<div class="my-team-catchword">
+						口号：“艺术无处不在，等你来战”，队友共66886人
+					</div>
+					<div class="my-record-task">
+						<span class="record">我的战绩</span>
+						<span class="task" id="start_task">开始任务</span>
+					</div>
+				</div>
+				<div class="activity-rules">
+					<a href="#middlePopover">
+						<div class="activity-rules2">
+							邀请
+						</div>
+						<div class="activity-rules2">
+							好友
+						</div>
+					</a>
+
+				</div>
+
+				<div id="slider" class="mui-slider">
+					<div class="slider_taber">
+						<div id="sliderSegmentedControl" class="slider_control mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+							<a activeId="0" class="mui-control-item mui-control-item-tab mui-active">
+								<div>战区排名</div>
+								<div class="active"></div>
+
+							</a>
+							<a activeId="1" class="mui-control-item mui-control-item-tab">
+								<div>全国排名</div>
+								<div class="active"></div>
+
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-group">
+						<div class="mui-slider-item mui-control-content mui-active">
+							<div id="scroll1" class="scroll1">
+								<ul id="" class="mui-table-view my-team">
+									<li class="mui-table-view-cell my-record">
+										<span class="my-ranking">
+												15
+											</span>
+										<span class="my-teams">
+											您的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking one">
+											1
+										</span>
+										<span class="my-teams">
+											汪小菲的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking two">
+											2
+										</span>
+										<span class="my-teams">
+											汪小菲的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking three">
+											3
+										</span>
+										<span class="my-teams">
+											汪小菲的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking">
+											4
+										</span>
+										<span class="my-teams">
+											汪小菲的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking">
+											5
+										</span>
+										<span class="my-teams">
+											别具匠心的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+						<div class="mui-slider-item mui-control-conten">
+							<div id="scroll2" class="scroll1">
+								<ul id="" class="mui-table-view my-team">
+									<li class="mui-table-view-cell my-record">
+										<span class="my-ranking">
+												15
+											</span>
+										<span class="my-teams">
+											您的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking one">
+											1
+										</span>
+										<span class="my-teams">
+											汪小菲的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking two">
+											2
+										</span>
+										<span class="my-teams">
+											汪小菲的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking three">
+											3
+										</span>
+										<span class="my-teams">
+											汪小菲的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking">
+											4
+										</span>
+										<span class="my-teams">
+											汪小菲的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+									<li class="mui-table-view-cell">
+										<span class="my-ranking">
+											5
+										</span>
+										<span class="my-teams">
+											别具匠心的战队
+										</span>
+										<span class="my-gold">
+											金币：9999
+										</span>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js "></script>
+		<script type="text/javascript " src="../js/jquery-3.1.1.js "></script>
+		<script type="text/javascript ">
+			mui.init();
+			mui(".mui-scroll-wrapper ").scroll();
+
+			document.querySelector('.mui-slider').addEventListener('slide', function(e) {
+				if(e.detail.slideNumber == 0) {
+					$('#catalog').addClass('mui-active');
+					$('#info').removeClass('mui-active');
+				} else if(e.detail.slideNumber == 1) {
+					$('#info').addClass('mui-active');
+					$('#catalog').removeClass('mui-active');
+				}
+			});
+			//点击切换选项卡
+			$('#sliderSegmentedControl').on("tap ", "a ", function(e) {
+				var activeId = $(this).attr("activeId");
+				console.log("activeId: " + activeId);
+				mui('#slider').slider().gotoItem(activeId, 500);
+			});
+			$("#start_task").click(function(){
+				window.location.href= "task-page.html";
+			})
+		</script>
+	</body>
+
+</html>

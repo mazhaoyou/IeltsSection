@@ -1,0 +1,12 @@
+{
+  "index.html": {
+    "refer": [
+      "view/wings-select.html"
+    ]
+  },
+  "view/wings-select.html": {
+    "refer": [
+      "index.html"
+    ]
+  }
+}

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/xhdstyle.css" />
+		<style type="text/css">
+			.selected-force .my-title img {
+				height: 200px;
+				width: 100%;
+			}
+			
+			.selected-force .activity-rules {
+				position: absolute;
+				right: 0;
+				top: 68px;
+				background: #F8C911;
+				height: 60px;
+				border-radius: 60px 0 0 60px;
+				padding: 10px 5px 10px 10px;
+				font-size: 12px;
+				color: #333333;
+			}
+			
+			.selected-force .activity-rules .activity-rules2 {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.selected-force .headline {
+				height: 34px;
+				background: rgba(255, 255, 255, 1);
+				border-radius: 17px;
+				box-shadow: 4px px 6px rgba(108, 110, 121, 0.2);
+				margin: -24px 12px 0 12px;
+				position: relative;
+				z-index: 2;
+				line-height: 34px;
+			}
+			
+			.selected-force .headline img {
+				width: 20.5px;
+				height: 18px;
+				margin-left: 13.5px;
+				vertical-align: middle;
+			}
+			
+			.selected-force .headline .title {
+				font-size: 12px;
+				font-family: PingFang-SC-Medium;
+				color: #202020;
+			}
+			
+			.selected-force .region-list {
+				margin-top: 30px;
+				margin: 30px 12px 12px 12px;
+			}
+			
+			.selected-force .region-list-title {
+				color: #202020;
+				font-size: 18px;
+				font-family: PingFang-SC-Heavy;
+				color: rgba(32, 32, 32, 1);
+				font-weight: bold;
+			}
+			
+			.mui-popover {
+				bottom: 20%;
+				right: 0;
+				position: absolute;
+				z-index: 999;
+				display: none;
+				-webkit-transition: opacity .3s;
+				transition: opacity .3s;
+				-webkit-transition-property: opacity;
+				transition-property: opacity;
+				-webkit-transform: none;
+				transform: none;
+				opacity: 0;
+				border-radius: 12px;
+				width: 80%;
+				background-color: #f7f7f7;
+				-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+				box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+			}
+			
+			.mui-popover.mui-active {
+				display: block;
+				opacity: 1;
+				position: absolute;
+				margin: 0px -27px;
+				text-align: center;
+			}
+			
+			.mui-popover .mui-popover-arrow:after {
+				position: absolute;
+				top: 19px;
+				left: 0;
+				width: 0px;
+				height: 0px;
+				content: ' ';
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
+				border-radius: 3px;
+			}
+			
+			.activity-rules-title {
+				font-size: 20px;
+				color: #000000;
+				margin-top: 33.5px;
+				text-align: center;
+			}
+			
+			.activity-rules-content {
+				margin: 20px 17.5px;
+				font-size: 12px;
+				color: #666;
+			}
+			
+			.mui-popover-close {
+				position: absolute;
+				bottom: -15%;
+				text-align: center;
+				left: 50%;
+				color: red;
+			}
+			
+			.mui-popover-close img {
+				height: 20px;
+				width: 20px;
+				vertical-align: middle;
+			}
+			
+			.close-img {
+				border: 1px solid #FFFFFF;
+				border-radius: 35.5px;
+				height: 35.5px;
+				width: 35.5px;
+			}
+			
+			.task-list {
+				margin: 30px 12px 12px 12px;
+			}
+			
+			.task-list .region-list-title {
+				color: #202020;
+				font-size: 18px;
+				font-family: PingFang-SC-Heavy;
+				color: rgba(32, 32, 32, 1);
+				font-weight: bold;
+			}
+			
+			.mui-table-view {
+				background: linear-gradient(to right, #2C1B73, #9B41BC);
+				border-radius: 6px;
+				margin-top: 12px;
+			}
+			
+			.mui-table-view.mui-wenwancheng {
+				background: #5363F2;
+			}
+			
+			.mui-table-view-cell {
+				position: relative;
+				overflow: hidden;
+				padding: 15px 0;
+				margin: 18px 0;
+				-webkit-touch-callout: none;
+			}
+			
+			.task-list-title {
+				font-size: 14px;
+				font-family: PingFang-SC-Medium;
+				color: #fff;
+			}
+			
+			.task-list-content {
+				font-size: 11px;
+				font-family: PingFang-SC-Medium;
+				color: #EDE2FF;
+				margin-top: 6px;
+			}
+			
+			.task-frame {
+				margin: 9px 0;
+			}
+			
+			.submit {
+				position: absolute;
+				top: 38%;
+				right: 0;
+				background: #F8C911;
+				height: 23px;
+				width: 64px;
+				line-height: 23px;
+				border-radius: 11px;
+				padding: 0 10px;
+				font-size: 11px;
+				color: #202020;
+				margin-right: 12px;
+			}
+			
+			.mui-media-body {
+				margin-right: 70px;
+				overflow: hidden;
+			}
+			
+			.mui-media-object.mui-pull-left.my-number {
+				height: 36px;
+				width: 36px;
+				border-radius: 100%;
+				margin: 0 auto;
+				border: 1px solid #FFFFFF;
+				border-radius: 36px;
+				text-align: center;
+				line-height: 36px;
+				margin: 5px 5px 0px 12px;
+			}
+			
+			.mui-table-view .mui-media,
+			.mui-table-view .mui-media-body {
+				overflow: hidden;
+				margin: 0;
+			}
+			
+			.mui-table-view-cell>a:not(.mui-btn) {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				margin: -11px 0px;
+				padding: inherit;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: inherit;
+			}
+			
+			.mui-media-object.mui-pull-left.my-number span {
+				border-color: #FFFFFF;
+				border: 1px;
+				border-radius: 90px;
+				color: #FFFFFF;
+			}
+			
+			.weiwancheng {
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 23px;
+				width: 64px;
+				line-height: 23px;
+				border-radius: 11px;
+				padding: 0 10px;
+				font-size: 11px;
+				color: #202020;
+				margin-right: 12px;
+			}
+			
+			.weiwancheng img {
+				height: 39px;
+				width: 39px;
+				margin-top: 12px;
+			}
+			
+			.weiwancheng .weiwancheng-content {
+				font-size: 10px;
+				color: #8793FD;
+				margin-top: -7px;
+			}
+			
+			.mui-bar.mui-bar-tab {
+				display: flex;
+				width: 100%;
+				height: 48px;
+				/*padding-top: 0px;
+				border-top: 0.5px solid #eee;*/
+				background: #ffffff;
+			}
+			
+			hr {
+				width: 48px;
+				border: none;
+				left: calc(50% - 28px);
+				bottom: 19px;
+				position: absolute;
+				z-index: 999;
+				border-top: 1px solid #eee;
+				transform: rotate(90deg);
+				-ms-transform: rotate(90deg);
+				-moz-transform: rotate(90deg);
+				-webkit-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				color: #eeeeee;
+			}
+			
+			.mui-bar.mui-bar-tab .mui-btn {
+				top: 0px;
+				width: 50%;
+				display: inline-block;
+				border: none;
+				background: #ffffff;
+				color: #333333;
+				padding-top: 13px;
+			}
+			
+			.mui-bar.mui-bar-tab .mui-btn img {
+				height: 22px;
+				width: 22px;
+				vertical-align: middle;
+			}
+			
+			.mui-bar.mui-bar-tab .mui-btn span {
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-action-back mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+					<span id="" class="ui-left">返回</span>
+		    </button>
+			<h1 class="mui-title">雅思王者，谁与争锋</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper selected-force">
+			<div class="mui-scroll">
+
+				<div class="my-title">
+					<img src="../img/huodong4.jpg" />
+					<div class="activity-rules">
+						<a href="#middlePopover">
+							<div class="activity-rules2">
+								活动
+							</div>
+							<div class="activity-rules2">
+								规则
+							</div>
+						</a>
+
+					</div>
+				</div>
+				<div class="headline">
+					<img src="../img/gonggao.png" />
+					<span class="title">
+					“ Zoey”魏战队摘取10枚金币
+				</span>
+				</div>
+				<div class="task-list">
+					<div class="region-list-title">
+						任务挑战
+					</div>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">1</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思写作王者争霸挑战赛</span>
+									<p class='task-list-content'>共挑战12次，最高摘取9枚金币</p>
+								</div>
+								<div class="submit">
+									再次挑战
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">2</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思词汇争霸赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="submit">
+									立即挑战
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">3</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思题库冠军争夺赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="submit">
+									立即挑战
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view mui-wenwancheng">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">4</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思题库冠军争夺赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="weiwancheng">
+									<img src="../img/weiwancheng.png" />
+									<div class="weiwancheng-content">
+										未开锁
+									</div>
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view mui-wenwancheng">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">5</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思题库冠军争夺赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="weiwancheng">
+									<img src="../img/weiwancheng.png" />
+									<div class="weiwancheng-content">
+										未开锁
+									</div>
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<ul class="mui-table-view mui-wenwancheng">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-left my-number">
+									<span id="">6</span>
+								</div>
+								<div class="mui-media-body">
+									<span class="task-list-title">雅思题库冠军争夺赛</span>
+									<p class='task-list-content'>挑战人员共66884人</p>
+								</div>
+								<div class="weiwancheng">
+									<img src="../img/weiwancheng.png" />
+									<div class="weiwancheng-content">
+										未开锁
+									</div>
+								</div>
+							</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="middlePopover" class="mui-popover">
+			<!--<div class="mui-popover-arrow"></div>-->
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="activity-rules-title">
+						活动规则
+					</div>
+					<div class="activity-rules-content">
+						1、1分=1积分<br /> 2、每项任务可重复挑战，每次挑战会随机抽取题目，以获得题目最高分作为该任务最终成绩。 <br /> 3、任务分期开放，20每项任务可重复挑战，每次挑战会随机抽取题目，以获得题目最高分作为该任务最终成绩。 任务分期开放，2018.05.05日开放第一个任务，此后每天10:00依次开放相关任务，2018.05.18日开放最后一个任务后，活动结束。
+						<br /> 4、可分享战队二维码邀请好友加入战队，与你一起挑战。
+						<br /> 5、可邀请好友加油助力，每天最多可邀请100名好友助力，活动期间，每天都可邀请。
+						<br /> 6、如果出现违规行为（如：作弊领取等），将取消用户活动资格；同时有权撤销违规交易，收回相关金币；必要时将追究违规用户法律责任。
+						<br /> 7、我们将根据活动的实际举办情况对活动规则进行变动或调整，相关变动或调整将公布在活动页面上，并于公布时即时生效。
+
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-popover-close">
+				<div class="close-img">
+					<img src="img/close.png" />
+				</div>
+			</div>
+
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+			<div class="mui-btn mui-btn-danger">
+				<img src="../img/duiwu.png" />
+				<a href="my-team.html" style="color:#E95B91;">我的战队</a>
+			</div>
+			<hr/>
+			<div class="mui-btn mui-btn-danger">
+				<img src="../img/zhanji.png" />
+				<span style="color:#468DFF">我的战绩</span>
+			</div>
+		</nav>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui(".mui-scroll-wrapper").scroll();
+		</script>
+	</body>
+
+</html>

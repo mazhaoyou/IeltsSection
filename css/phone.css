@@ -1,0 +1,30 @@
+/**移动端处理a标签*/
+
+a:link,
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+a {
+	text-decoration: none;
+	/*去掉下划线*/
+}
+
+button,
+input {
+	-webkit-appearance: none;
+}
+
+input {
+	outline: none;
+	/*去掉外标签*/
+	vertical-align: middle;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+

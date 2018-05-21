@@ -1,0 +1,24 @@
+.mui-bar.mui-bar-nav {
+	top: 0;
+	background: #202020;
+	height: 44px;
+	color: #FFFFFF;
+}
+
+.mui-title {
+	color: #fff;
+	font-size: 18px;
+}
+
+.ui-left {
+	color: #fff;
+	font-size: 16px;
+}
+
+.mui-icon.mui-icon-left-nav {
+	color: #fff;
+}
+.mui-content{
+	margin: 0;
+	padding: 0;
+}

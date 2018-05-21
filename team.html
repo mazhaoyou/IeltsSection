@@ -1,0 +1,131 @@
+<head>
+<title>约战分享</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="images/css.css" rel="stylesheet" type="text/css">
+<style>
+	html,body{
+		width:100%;
+		height:100%;
+	}
+	#img{
+	width:100%;
+	height:100%;
+	}
+</style>
+</head>
+<body>
+  <div id="weixinback" >
+ 
+  </div>
+    <img src='' id='img'/>
+</body>
+<script language="JavaScript" type="text/JavaScript">
+var system ={
+win : false,
+mac : false,
+xll : false
+};
+
+//检测平台
+	var p = navigator.platform;
+		system.win = p.indexOf("Win") == 0;
+		system.mac = p.indexOf("Mac") == 0;
+		system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+	//跳转语句
+	
+	if(system.win||system.mac||system.xll){
+		//window.location.href="http://www.weishengyule.cn";
+		alert("无法查看,请用手机浏览器打开该分享");
+	}else{
+		if(isWeiXin()){
+			//alert("请您在微信右上角的浏览中打开");
+			var back=document.getElementById("img");
+			back.src="back.jpg"; 
+		}else if(isQQ())
+		{
+		var back=document.getElementById("img");
+			back.src="back.jpg"; 
+		}else if(isQQBrowes()){
+		  alert("无法查看,请用手机内置浏览器打开该分享");
+		}
+		else{
+			var isiPad = navigator.userAgent.match(/iPad/i) != null;
+			var isiPhone = navigator.userAgent.match(/iPhone/i) != null;
+			var isandroid = navigator.userAgent.match(/Android/i) != null;
+			if(isandroid)
+			{
+				document.location = "zhtyandroid://abc?matchid="+GetQueryString("matchid")+"&type="+GetQueryString("type"); 
+				setTimeout( function() { 
+				if( confirm( '亲，你没有安装我们的app，是否现在就去下载?')) { 
+					document.location = 'http://zhushou.360.cn/detail/index/soft_id/3879727'; 
+				} else{
+					// window.history.back();
+					  window.opener=null;
+					   window.open('','_self');
+					   window.close();
+					
+				}
+				}, 500);
+			}
+			if(isiPad)
+			{
+			document.location = "zhtyios://abc?matchid="+GetQueryString("matchid")+"&type="+GetQueryString("type");
+				setTimeout( function() { 
+					if( confirm( '亲，你没有安装我们的app，是否现在就去下载?')) { 
+						document.location = 'https://itunes.apple.com'; 
+					} else{
+						
+					}
+				}, 500);
+		}
+				if(isiPhone)
+				{
+					document.location = "zhtyios://abc?matchid="+GetQueryString("matchid")+"&type="+GetQueryString("type");
+					setTimeout( function() { 
+						if( confirm( '亲，你没有安装我们的app，是否现在就去下载?')) { 
+							document.location = 'https://itunes.apple.com'; 
+						} 
+					}, 500);
+				}
+			}
+		}
+   
+	
+	   
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+	 //alert(window.location.search);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+ function isWeiXin(){ 
+	var ua = window.navigator.userAgent.toLowerCase(); 
+	if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+		return true; 
+	}else{ 
+	return false; 
+	} 
+} 
+
+//是否QQ
+function isQQ(){
+var ua = navigator.userAgent.toLowerCase();
+ if (ua.match(/QQ/i) == "qq") {
+        return true;  
+  }else{
+  return false;
+  }
+//return !!ua.match(/mqqbrowser|qzone|qqbrowser/i);
+}
+function isQQBrowes(){
+var ua = navigator.userAgent.toLowerCase();
+ if(ua.indexOf('mobile mqqbrowser')>-1){
+return true;
+}else{
+return false;
+}
+}
+</script>
+ 
+</html>

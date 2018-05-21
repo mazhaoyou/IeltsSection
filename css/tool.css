@@ -1,0 +1,46 @@
+
+
+body *{
+	-webkit-text-size-adjust: 100%;
+	-webkit-user-select: none; /**ios下长按选中*/
+}
+a:link,
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a{
+	text-decoration: none; /*去掉下划线*/
+}
+button,input{
+	-webkit-appearance: none; 
+}
+input{
+	outline:none;/*去掉外标签*/
+	vertical-align: middle;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+img{
+	vertical-align: middle;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+
+.clearfix:after{
+	content:'';
+	display: block;
+	clear: both;
+}
+
+
+.glyphicon-menu-right{
+	color: #E0E0E0;
+}

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/xhdstyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/phone.css"/>
+		<style type="text/css">
+			.home-page .my-title img {
+				height: 200px;
+				width: 100%;
+			}
+			
+			.home-page .activity-rules {
+				position: absolute;
+				right: 0;
+				top: 68px;
+				background: #F8C911;
+				height: 60px;
+				border-radius: 60px 0 0 60px;
+				padding: 10px 5px 10px 10px;
+				font-size: 12px;
+				color: #333333;
+			}
+			
+			.home-page .activity-rules .activity-rules2 {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.home-page .headline {
+				height: 34px;
+				background: rgba(255, 255, 255, 1);
+				border-radius: 17px;
+				box-shadow: 4px px 6px rgba(108, 110, 121, 0.2);
+				margin: -24px 12px 0 12px;
+				position: relative;
+				z-index: 286;
+				line-height: 34px;
+			}
+			
+			.home-page .headline img {
+				width: 20.5px;
+				height: 18px;
+				margin-left: 13.5px;
+				vertical-align: middle;
+			}
+			
+			.home-page .headline .title {
+				font-size: 12px;
+				font-family: PingFang-SC-Medium;
+				color: #202020;
+			}
+			
+			.home-page .region-list {
+				margin-top: 30px;
+				margin: 30px 12px 12px 12px;
+			}
+			
+			.home-page .region-list-title {
+				color: #202020;
+				font-size: 18px;
+				font-family: PingFang-SC-Heavy;
+				color: rgba(32, 32, 32, 1);
+				font-weight: bold;
+			}
+			
+			.home-page .mui-table-view {
+				margin-top: 12px;
+				border-radius: 6px;
+				background: linear-gradient(to right, #2C1B73, #9B41BC);
+			}
+			
+			.home-page .mui-table-view-cell>a:not(.mui-btn) {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				margin: 17px 0 0 0;
+				padding: 0;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: inherit;
+				border-radius: 6px;
+			}
+			
+			.home-page .mui-table-view .mui-table-view-cell {
+				height: 76px;
+				box-shadow: 6px 0px 12px rgba(154, 74, 205, 0.15);
+				padding: 0;
+				margin: 0 0 0 20px;
+			}
+			
+			.home-page .mui-table-view .mui-table-view-cell .me-title {
+				color: #fff;
+				font-size: 14px;
+			}
+			
+			.home-page .mui-table-view .mui-table-view-cell .me-hint {
+				color: #EDE2FF;
+				font-size: 11px;
+			}
+			
+			.mui-navigate-right:after,
+			.mui-push-left:after,
+			.mui-push-right:after {
+				font-family: Muiicons;
+				font-size: inherit;
+				line-height: 1;
+				position: absolute;
+				top: 40%;
+				display: inline-block;
+				-webkit-transform: translateY(-50%);
+				transform: translateY(-50%);
+				text-decoration: none;
+				color: #fff;
+				-webkit-font-smoothing: antialiased;
+				height: 9px;
+				width: 17px;
+			}
+			
+			.mui-navigate-right.mui-active {
+				background: linear-gradient(to right, #2C1B73, #9B41BC);
+			}
+			
+		
+			
+			.mui-popover {
+				bottom: 20%;
+				right: 0;
+				position: absolute;
+				z-index: 999;
+				display: none;
+				-webkit-transition: opacity .3s;
+				transition: opacity .3s;
+				-webkit-transition-property: opacity;
+				transition-property: opacity;
+				-webkit-transform: none;
+				transform: none;
+				opacity: 0;
+				border-radius: 12px;
+				width: 80%;
+				background-color: #f7f7f7;
+				-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+				box-shadow: 0 0 15px rgba(0, 0, 0, .1);
+			}
+			
+			.mui-popover.mui-active {
+				opacity: 1;
+				position: absolute;
+				margin: 0;
+				display: block;
+				top: 109px;
+				left:10% !important;
+			}
+		
+			
+			.mui-popover .mui-popover-arrow:after {
+				position: absolute;
+				top: 19px;
+				left: 0;
+				width: 0px;
+				height: 0px;
+				content: ' ';
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
+				border-radius: 3px;
+			}
+			
+			.activity-rules-title {
+				font-size: 20px;
+				color: #000000;
+				margin-top: 33.5px;
+				text-align: center;
+			}
+			
+			.activity-rules-content {
+				margin: 20px 17.5px;
+				font-size: 12px;
+				color: #666;
+			}
+			
+			.mui-popover-close {
+				position: absolute;
+				bottom: -15%;
+				text-align: center;
+				left: 45%;
+				color: red;
+			}
+			
+			.mui-popover-close img {
+				height: 20px;
+				width: 20px;
+				margin-top: 8px;
+			}
+			
+			.close-img {
+				border: 1px solid #FFFFFF;
+				border-radius: 35.5px;
+				height: 35.5px;
+				width: 35.5px;
+				vertical-align: middle;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-action-back mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+					<span class="mui-icon mui-icon-left-nav"></span>
+					<span id="" class="ui-left">返回</span>
+		    </button>
+			<h1 class="mui-title">雅思王者，谁与争锋</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper home-page">
+			<div class="mui-scroll">
+
+				<div class="my-title">
+					<img src="img/huodong4.jpg" />
+					<div class="activity-rules">
+						<a href="#middlePopover">
+							<div class="activity-rules2">
+								活动
+							</div>
+							<div class="activity-rules2">
+								规则
+							</div>
+						</a>
+
+					</div>
+				</div>
+				<div class="headline">
+					<img src="img/gonggao.png" />
+					<span class="title">
+					“ Zoey”魏战队摘取10枚金币
+				</span>
+				</div>
+				<div class="region-list">
+					<div class="region-list-title">
+						战区选择
+					</div>
+					<div class="list">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell ">
+								<a class="mui-navigate-right" href="view/wings-select.html">
+									<div class="frame-div">
+										<div class="me-title">新航道北京战区</div>
+										<div class="me-hint">战区参战人员共60000人</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell ">
+								<a class="mui-navigate-right">
+									<div class="frame-div">
+										<div class="me-title">新航道上海战区</div>
+										<div class="me-hint">战区参战人员共60000人</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell ">
+								<a class="mui-navigate-right">
+									<div class="frame-div">
+										<div class="me-title">新航道广州战区</div>
+										<div class="me-hint">战区参战人员共60000人</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell ">
+								<a class="mui-navigate-right">
+									<div class="frame-div">
+										<div class="me-title">新航道杭州战区</div>
+										<div class="me-hint">战区参战人员共60000人</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="middlePopover" class="mui-popover">
+			<!--<div class="mui-popover-arrow"></div>-->
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="activity-rules-title">
+						活动规则
+					</div>
+					<div class="activity-rules-content">
+						1、1分=1积分<br /> 2、每项任务可重复挑战，每次挑战会随机抽取题目，以获得题目最高分作为该任务最终成绩。 <br /> 3、任务分期开放，20每项任务可重复挑战，每次挑战会随机抽取题目，以获得题目最高分作为该任务最终成绩。 任务分期开放，2018.05.05日开放第一个任务，此后每天10:00依次开放相关任务，2018.05.18日开放最后一个任务后，活动结束。
+						<br /> 4、可分享战队二维码邀请好友加入战队，与你一起挑战。
+						<br /> 5、可邀请好友加油助力，每天最多可邀请100名好友助力，活动期间，每天都可邀请。
+						<br /> 6、如果出现违规行为（如：作弊领取等），将取消用户活动资格；同时有权撤销违规交易，收回相关金币；必要时将追究违规用户法律责任。
+						<br /> 7、我们将根据活动的实际举办情况对活动规则进行变动或调整，相关变动或调整将公布在活动页面上，并于公布时即时生效。
+
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-popover-close">
+				<div class="close-img">
+					<img src="img/close.png" />
+				</div>
+			</div>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui(".mui-scroll-wrapper").scroll();
+		</script>
+	</body>
+
+</html>
